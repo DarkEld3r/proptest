@@ -174,10 +174,7 @@ impl RngCore for TestRng {
                 ref data,
             } => {
                 if *off + dest.len() > end {
-                    return Err(rand::Error::new(
-                        rand::ErrorKind::Unavailable,
-                        "out of PassThrough data",
-                    ));
+                    return Err(::core::num::NonZeroU32::new(0xE0Fu32).unwrap().into());
                 }
 
                 dest.copy_from_slice(&data[*off..*off + dest.len()]);
@@ -345,7 +342,6 @@ impl TestRng {
     pub(crate) fn default_rng(algorithm: RngAlgorithm) -> Self {
         #[cfg(feature = "std")]
         {
-            use rand::FromEntropy;
             Self {
                 rng: match algorithm {
                     RngAlgorithm::XorShift => {

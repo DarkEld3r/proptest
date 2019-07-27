@@ -4,6 +4,8 @@
 
 - The `proptest!` macro now enforces that the function body evaluates to `()`.
 
+- The public dependency `rand` has been bumped to 0.7.
+
 ## 0.9.4
 
 ### Bug Fixes
