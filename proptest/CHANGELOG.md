@@ -1,3 +1,9 @@
+## Unreleased
+
+### Potential Breaking Changes
+
+- The `proptest!` macro now enforces that the function body evaluates to `()`.
+
 ## 0.9.4
 
 ### Bug Fixes
